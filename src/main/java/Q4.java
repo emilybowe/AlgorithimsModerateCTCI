@@ -1,59 +1,37 @@
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class Q4 {
+    List<Optional> ticTacToeResults;
 
-    private int xCount;
-    private int oCount;
-    int i_VALUES_FOR_ASSESSMENT = 0;
-    List<Optional> horizontal = new ArrayList<>();
+    public static Optional<String> findWinner(List<Optional> ticTacToeResults) {
+        if (check(ticTacToeResults, 0, 3).equals("error")) {
+            if (check(ticTacToeResults, 3, 6).equals("error")) {
+                if (check(ticTacToeResults, 6, 9).equals("error")) {
 
-    public String findWinner(List<Optional> horizontal) {
-        for(int i = 0; i < 2; i++) {
-            if (checkResults().equals("No one won")) {
-                Next();
-            }
-            else return checkResults();
+                } else return check(ticTacToeResults, 6, 9);
+            } else return check(ticTacToeResults, 3, 6);
         }
-        return checkResults();
+        return check(ticTacToeResults, 0, 3);
     }
-
-    public int getxCount() {
-        return xCount;
-    }
-
-    public int getoCount() {
-        return oCount;
-    }
-
-    public String checkResults() {
-        if (Assess(horizontal)) {
-            if (getxCount() == 3) {
-                return "X won";
-            } else if (getoCount() == 3) {
-                return "O won";
-            }
-        }
-        return "No one won";
-    }
-
-    public boolean Assess (List<Optional> horizontal) {
-        for (int i = i_VALUES_FOR_ASSESSMENT; i < i_VALUES_FOR_ASSESSMENT + 3; i++) {
-            if (horizontal.get(i).equals('x')) {
+    public static Optional<String> check(List<Optional> ticTacToeResults, int lowerBound, int upperBound) {
+        int xCount = 0;
+        int oCount = 0;
+        for (int i = lowerBound; i < upperBound; i++) {
+            if (ticTacToeResults.get(i).equals(Optional.of("x"))) {
                 xCount += 1;
-            } else if (horizontal.get(i).equals('o')) {
+            }
+            if (ticTacToeResults.get(i).equals(Optional.of("o"))) {
                 oCount += 1;
             }
         }
-        return xCount == 3 || oCount == 3;
+        if(xCount == 3) return Optional.of("x");
+        if(oCount == 3) return Optional.of("o");
+        return Optional.of("error");
     }
-
-    public void Next () {
-            i_VALUES_FOR_ASSESSMENT += 3;
-    }
-
 }
+
+
 
 
 
