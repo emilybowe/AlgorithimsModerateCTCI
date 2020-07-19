@@ -18,7 +18,7 @@ class Q4Test {
         //when
         Q4 q4 = new Q4();
         //then
-        Assertions.assertEquals(q4.findWinner(resultsArrayForAssessment));
+        Assertions.assertEquals(placeholder, q4.findWinner(resultsArrayForAssessment));
 
     }
 
