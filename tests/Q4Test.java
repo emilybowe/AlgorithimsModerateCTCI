@@ -1,19 +1,24 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
 class Q4Test {
 
+    /*Assumptions
+    assume always 3x3
+    assume given a completed board to check
+     */
+
     @Test
     public void findWinnerTest() {
-        /*
-        Notes on previous solutions:
-        -Incorrect use of Optionals
-            (don't pass as parameter, should be more return values, also should be more to handle an outside function)
-        -Less Global Variables
-        -Only need entry point to be public, private is default
-        -Incorrect while loop
-        -Can work with ints etc where this is more clear, e.g. int x = 1, int o = 2, int empty = 0
-         */
+        //given
+
+        int[] resultsArrayForAssessment = {1, 2, 1, 2, 1, 0, 2, 0, 1};
+        //when
+        Q4 q4 = new Q4();
+        //then
+        Assertions.assertEquals(q4.findWinner(resultsArrayForAssessment));
+
     }
 
 }
