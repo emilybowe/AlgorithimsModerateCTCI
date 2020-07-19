@@ -41,20 +41,33 @@ public class Q4 {
         centre = ticTacToeArray[1][1];
     }
 
-    private void checkForWinnerByCentre() {
+    private String checkForWinnerByCentre() {
         if (getCentre() == getX()) {
-            check(getCentre());
+            return (checkCentre(getCentre()) + centre);
         }
         else if(getCentre() == getO()) {
-            check(getCentre());
+            return (checkCentre(getCentre()) + centre);
         }
         else if (getCentre() == getEmpty()) {
-
+            return "centre is empty";
         }
+        else return "error";
     }
 
-    private void check(int centre) {
-
+    private String checkCentre(int centre) {
+        if (ticTacToeArray[0][0] == centre && ticTacToeArray[2][2] == centre) {
+            return "The winner is ";
+        }
+        else if(ticTacToeArray[0][2] == centre && ticTacToeArray[2][0] == centre) {
+            return "The winner is ";
+        }
+        else if (ticTacToeArray[0][1] == centre && ticTacToeArray[2][1] == centre) {
+            return "The winner is ";
+        }
+        else if (ticTacToeArray[1][0] == centre && ticTacToeArray[1][2] == centre) {
+            return "The winner is ";
+        }
+        else return "need to check rest of board";
     }
 }
 
