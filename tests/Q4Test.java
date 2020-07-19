@@ -7,10 +7,11 @@ class Q4Test {
     /*Assumptions
     assume always 3x3
     assume given a completed board to check
+    given what is in the centre of TicTacToe is then in several lines, check these first
      */
 
     @Test
-    public void findWinnerTest() {
+    public void xShouldWinOnDiagonalTest() {
         //given
 
         int[] resultsArrayForAssessment = {1, 2, 1, 2, 1, 0, 2, 0, 1};

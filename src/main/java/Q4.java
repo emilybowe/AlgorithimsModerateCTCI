@@ -16,6 +16,17 @@ public class Q4 {
         ticTacToeArray[2][1] = resultsArrayForAssessment[7];
         ticTacToeArray[2][2] = resultsArrayForAssessment[8];
 
+        int centre = ticTacToeArray[1][1];
+        if (centre == x) {
+
+        }
+        else if(centre == o) {
+
+        }
+        else if (centre == empty) {
+            
+        }
+
     }
 }
 
