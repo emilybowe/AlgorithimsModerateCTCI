@@ -13,12 +13,11 @@ class Q4Test {
     @Test
     public void xShouldWinOnDiagonalTest() {
         //given
-
         int[] resultsArrayForAssessment = {1, 2, 1, 2, 1, 0, 2, 0, 1};
         //when
         Q4 q4 = new Q4();
         //then
-        Assertions.assertEquals(placeholder, q4.findWinner(resultsArrayForAssessment));
+        Assertions.assertEquals("The winner is x", q4.findWinner(resultsArrayForAssessment));
 
     }
 

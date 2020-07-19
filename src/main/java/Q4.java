@@ -25,9 +25,18 @@ public class Q4 {
 
     public String findWinner(int[] resultsArrayForAssessment) {
         setup(resultsArrayForAssessment);
-        return checkService();
+        return clarifyOutputMessage(checkService());
     }
 
+    private String clarifyOutputMessage(String checkServiceOutput) {
+        if (checkService().equals(winnerPhrase + getX())){
+            return winnerPhrase + "x";
+        }
+        if (checkService().equals(winnerPhrase + getO())) {
+            return winnerPhrase + "o";
+        }
+        else return checkService();
+    }
     private void setup(int[] resultsArrayForAssessment) {
         populateTicTacToeArray(resultsArrayForAssessment);
         setCentreVariable();
