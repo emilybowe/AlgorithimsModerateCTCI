@@ -42,16 +42,13 @@ public class Q4 {
     }
 
     private String checkForWinnerByCentre() {
-        if (getCentre() == getX()) {
-            return (checkCentre(getCentre()) + centre);
-        }
-        else if(getCentre() == getO()) {
+        if (getCentre() == getX() || getCentre() == getO()) {
             return (checkCentre(getCentre()) + centre);
         }
         else if (getCentre() == getEmpty()) {
             return "centre is empty";
         }
-        else return "error";
+        else return "error - centre should have x/o/empty";
     }
 
     private String checkCentre(int centre) {
