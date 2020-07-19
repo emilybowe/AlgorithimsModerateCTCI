@@ -57,7 +57,7 @@ public class Q4 {
         if (checkForWinnerByCentre().equals(centreEmptyPhrase)) {
             return checkOutside();
         }
-        else return "error - should be winner/no winner/empty ";
+        else return "error - should return winner/no winner/empty ";
     }
 
     private String checkForWinnerByCentre() {
@@ -67,7 +67,7 @@ public class Q4 {
         else if (getCentre() == getEmpty()) {
             return centreEmptyPhrase;
         }
-        else return "error - centre should have x/o/empty";
+        else return "error - centre should contain x/o/empty";
     }
 
     private String checkCentre(int centre) {
