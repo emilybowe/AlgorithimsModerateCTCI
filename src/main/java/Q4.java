@@ -20,11 +20,15 @@ public class Q4 {
 
     private int[][] ticTacToeArray = new int[3][3];
 
-    public void findWinner(int[] resultsArrayForAssessment) {
+    public String findWinner(int[] resultsArrayForAssessment) {
+        setup(resultsArrayForAssessment);
+        return checkService();
+    }
+
+    private void setup(int[] resultsArrayForAssessment) {
         populateTicTacToeArray(resultsArrayForAssessment);
         setCentreVariable();
     }
-
     private void populateTicTacToeArray(int[] resultsArrayForAssessment) {
         ticTacToeArray[0][0] = resultsArrayForAssessment[0];
         ticTacToeArray[0][1] = resultsArrayForAssessment[1];
@@ -36,9 +40,21 @@ public class Q4 {
         ticTacToeArray[2][1] = resultsArrayForAssessment[7];
         ticTacToeArray[2][2] = resultsArrayForAssessment[8];
     }
-
     private void setCentreVariable() {
         centre = ticTacToeArray[1][1];
+    }
+
+    private String checkService() {
+        if(checkForWinnerByCentre().equals("The winner is x")||checkForWinnerByCentre().equals("The winner is o")){
+            return checkForWinnerByCentre();
+        }
+        if (checkForWinnerByCentre().equals("centre is empty")) {
+            //check rest of board
+        }
+        if(checkForWinnerByCentre().equals("no winner with x")||checkForWinnerByCentre().equals("no winner with o")) {
+            //check rest of board
+        }
+        else return "error - ";
     }
 
     private String checkForWinnerByCentre() {
@@ -64,7 +80,7 @@ public class Q4 {
         else if (ticTacToeArray[1][0] == centre && ticTacToeArray[1][2] == centre) {
             return "The winner is ";
         }
-        else return "need to check rest of board";
+        else return "no winner with ";
     }
 }
 
