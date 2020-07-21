@@ -1,12 +1,12 @@
 public class Q4 {
 
-    private int empty = 0;
-    private int x = 1;
-    private int o = 2;
+    private static final int empty = 0;
+    private static final int x = 1;
+    private static final int o = 2;
     private int centre;
-    private String winnerPhrase = "The winner is ";
-    private String noWinnerPhrase = "No winner";
-    private String centreEmptyPhrase = "Centre is empty";
+    private static final String winnerPhrase = "The winner is ";
+    private static final String noWinnerPhrase = "No winner";
+    private static final String centreEmptyPhrase = "Centre is empty";
 
     private int[][] ticTacToeArray = new int[3][3];
 
