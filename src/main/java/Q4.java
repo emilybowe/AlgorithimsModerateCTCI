@@ -8,19 +8,6 @@ public class Q4 {
     private String noWinnerPhrase = "No winner";
     private String centreEmptyPhrase = "Centre is empty";
 
-    private int getX() {
-        return x;
-    }
-    private int getO() {
-        return o;
-    }
-    private int getEmpty() {
-        return empty;
-    }
-    private int getCentre() {
-        return centre;
-    }
-
     private int[][] ticTacToeArray = new int[3][3];
 
     public String findWinner(int[] resultsArrayForAssessment) {
