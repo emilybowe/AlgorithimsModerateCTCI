@@ -1,6 +1,9 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 class Q4Test {
 
@@ -13,7 +16,17 @@ class Q4Test {
     @Test
     public void xShouldWinOnDiagonalTest() {
         //given
-        int[] resultsArrayForAssessment = {1, 2, 1, 2, 1, 0, 2, 0, 1};
+        List<Integer> resultsArrayForAssessment = new ArrayList<>();
+        resultsArrayForAssessment.add(1);
+        resultsArrayForAssessment.add(2);
+        resultsArrayForAssessment.add(1);
+        resultsArrayForAssessment.add(2);
+        resultsArrayForAssessment.add(1);
+        resultsArrayForAssessment.add(0);
+        resultsArrayForAssessment.add(2);
+        resultsArrayForAssessment.add(0);
+        resultsArrayForAssessment.add(1);
+
         //when
         Q4 q4 = new Q4();
         //then

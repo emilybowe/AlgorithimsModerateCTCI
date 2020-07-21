@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Q4 {
 
     private static final int EMPTY = 0;
@@ -12,7 +14,7 @@ public class Q4 {
 
     private int[][] ticTacToeArray = new int[3][3];
 
-    public String findWinner(int[] resultsArrayForAssessment) {
+    public String findWinner(List<Integer> resultsArrayForAssessment) {
         setup(resultsArrayForAssessment);
         return clarifyOutputMessage(checkService());
     }
@@ -26,20 +28,20 @@ public class Q4 {
         }
         else return checkService();
     }
-    private void setup(int[] resultsArrayForAssessment) {
+    private void setup(List<Integer> resultsArrayForAssessment) {
         populateTicTacToeArray(resultsArrayForAssessment);
         setCentreVariable();
     }
-    private void populateTicTacToeArray(int[] resultsArrayForAssessment) {
-        ticTacToeArray[0][0] = resultsArrayForAssessment[0];
-        ticTacToeArray[0][1] = resultsArrayForAssessment[1];
-        ticTacToeArray[0][2] = resultsArrayForAssessment[2];
-        ticTacToeArray[1][0] = resultsArrayForAssessment[3];
-        ticTacToeArray[1][1] = resultsArrayForAssessment[4];
-        ticTacToeArray[1][2] = resultsArrayForAssessment[5];
-        ticTacToeArray[2][0] = resultsArrayForAssessment[6];
-        ticTacToeArray[2][1] = resultsArrayForAssessment[7];
-        ticTacToeArray[2][2] = resultsArrayForAssessment[8];
+    private void populateTicTacToeArray(List<Integer> resultsArrayForAssessment) {
+        resultsArrayForAssessment.add( ticTacToeArray[0][0]);
+        resultsArrayForAssessment.add( ticTacToeArray[0][1]);
+        resultsArrayForAssessment.add( ticTacToeArray[0][2]);
+        resultsArrayForAssessment.add( ticTacToeArray[1][0]);
+        resultsArrayForAssessment.add( ticTacToeArray[1][1]);
+        resultsArrayForAssessment.add( ticTacToeArray[1][2]);
+        resultsArrayForAssessment.add( ticTacToeArray[2][0]);
+        resultsArrayForAssessment.add( ticTacToeArray[2][1]);
+        resultsArrayForAssessment.add( ticTacToeArray[2][2]);
     }
     private void setCentreVariable() {
         centre = ticTacToeArray[1][1];
