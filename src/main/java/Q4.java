@@ -1,12 +1,14 @@
 public class Q4 {
 
-    private static final int empty = 0;
-    private static final int x = 1;
-    private static final int o = 2;
+    private static final int EMPTY = 0;
+    private static final int X = 1;
+    private static final int O = 2;
+
     private int centre;
-    private static final String winnerPhrase = "The winner is ";
-    private static final String noWinnerPhrase = "No winner";
-    private static final String centreEmptyPhrase = "Centre is empty";
+
+    private static final String WINNER_PHRASE = "The winner is ";
+    private static final String NO_WINNER_PHRASE = "No winner";
+    private static final String CENTRE_EMPTY_PHRASE = "Centre is empty";
 
     private int[][] ticTacToeArray = new int[3][3];
 
@@ -16,11 +18,11 @@ public class Q4 {
     }
 
     private String clarifyOutputMessage(String checkServiceOutput) {
-        if (checkService().equals(winnerPhrase + getX())){
-            return winnerPhrase + "x";
+        if (checkService().equals(WINNER_PHRASE + X)){
+            return WINNER_PHRASE + "x";
         }
-        if (checkService().equals(winnerPhrase + getO())) {
-            return winnerPhrase + "o";
+        if (checkService().equals(WINNER_PHRASE + O)) {
+            return WINNER_PHRASE + "o";
         }
         else return checkService();
     }
@@ -44,58 +46,58 @@ public class Q4 {
     }
 
     private String checkService() {
-        if(checkForWinnerByCentre().equals(winnerPhrase + getX())||checkForWinnerByCentre().equals(winnerPhrase + getO())){
+        if(checkForWinnerByCentre().equals(WINNER_PHRASE + X)||checkForWinnerByCentre().equals(WINNER_PHRASE + O)){
             return checkForWinnerByCentre();
         }
-        if(checkForWinnerByCentre().equals(noWinnerPhrase + getX())||checkForWinnerByCentre().equals(noWinnerPhrase + getO())) {
+        if(checkForWinnerByCentre().equals(NO_WINNER_PHRASE + X)||checkForWinnerByCentre().equals(NO_WINNER_PHRASE + O)) {
             return checkOutside();
         }
-        if (checkForWinnerByCentre().equals(centreEmptyPhrase)) {
+        if (checkForWinnerByCentre().equals(CENTRE_EMPTY_PHRASE)) {
             return checkOutside();
         }
         else return "error - should return winner/no winner/empty ";
     }
 
     private String checkForWinnerByCentre() {
-        if (getCentre() == getX() || getCentre() == getO()) {
-            return (checkCentre(getCentre()) + centre);
+        if (centre == X || centre == O) {
+            return (checkCentre(centre) + centre);
         }
-        else if (getCentre() == getEmpty()) {
-            return centreEmptyPhrase;
+        else if (centre == EMPTY) {
+            return CENTRE_EMPTY_PHRASE;
         }
         else return "error - centre should contain x/o/empty";
     }
 
     private String checkCentre(int centre) {
         if (ticTacToeArray[0][0] == centre && ticTacToeArray[2][2] == centre) {
-            return winnerPhrase;
+            return WINNER_PHRASE;
         }
         else if(ticTacToeArray[0][2] == centre && ticTacToeArray[2][0] == centre) {
-            return winnerPhrase;
+            return WINNER_PHRASE;
         }
         else if (ticTacToeArray[0][1] == centre && ticTacToeArray[2][1] == centre) {
-            return winnerPhrase;
+            return WINNER_PHRASE;
         }
         else if (ticTacToeArray[1][0] == centre && ticTacToeArray[1][2] == centre) {
-            return winnerPhrase;
+            return WINNER_PHRASE;
         }
-        else return noWinnerPhrase;
+        else return NO_WINNER_PHRASE;
     }
 
     private String checkOutside() {
         if (ticTacToeArray[0][0] == ticTacToeArray[0][1] && ticTacToeArray[0][1]  == ticTacToeArray[0][2] ) {
-            return winnerPhrase;
+            return WINNER_PHRASE;
         }
         else if(ticTacToeArray[0][0] == ticTacToeArray[1][0] && ticTacToeArray[1][0]  == ticTacToeArray[2][0] ) {
-            return winnerPhrase;
+            return WINNER_PHRASE;
         }
         else if (ticTacToeArray[2][0] == ticTacToeArray[2][1] && ticTacToeArray[2][1]  == ticTacToeArray[2][2] ) {
-            return winnerPhrase;
+            return WINNER_PHRASE;
         }
         else if (ticTacToeArray[0][2] == ticTacToeArray[1][2] && ticTacToeArray[1][2]  == ticTacToeArray[2][2] ) {
-            return winnerPhrase;
+            return WINNER_PHRASE;
         }
-        else return noWinnerPhrase;
+        else return NO_WINNER_PHRASE;
     }
 }
 
