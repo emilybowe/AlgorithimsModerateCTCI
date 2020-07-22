@@ -15,8 +15,29 @@ public class Q4 {
     private int[][] ticTacToeArray = new int[3][3];
 
     public String findWinner(List<Integer> resultsArrayForAssessment) {
+        validateInput(resultsArrayForAssessment);
         setup(resultsArrayForAssessment);
         return clarifyOutputMessage(checkService());
+    }
+
+    private boolean validateInput(List<Integer> resultsArrayForAssessment) {
+        try {
+            if(validateArraySize(resultsArrayForAssessment) && validateArrayInputType(resultsArrayForAssessment)) {
+                return true;
+            }
+        }catch (IllegalArgumentException illegalArgumentException) {
+            illegalArgumentException.printStackTrace();
+        }
+        return false;
+    }
+
+    private boolean validateArraySize(List<Integer> resultsArrayForAssessment) {
+        return resultsArrayForAssessment.size() == 9;
+    }
+
+    private boolean validateArrayInputType(List<Integer> resultsArrayForAssessment) {
+        return resultsArrayForAssessment.stream()
+                .anyMatch(n -> (n instanceof Integer));
     }
 
     private String clarifyOutputMessage(String checkServiceOutput) {
@@ -29,9 +50,12 @@ public class Q4 {
         else return checkService();
     }
     private void setup(List<Integer> resultsArrayForAssessment) {
+        validateArrayInputType();
         populateTicTacToeArray(resultsArrayForAssessment);
         setCentreVariable();
     }
+
+
     private void populateTicTacToeArray(List<Integer> resultsArrayForAssessment) {
         resultsArrayForAssessment.add( ticTacToeArray[0][0]);
         resultsArrayForAssessment.add( ticTacToeArray[0][1]);
