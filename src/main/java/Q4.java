@@ -31,6 +31,12 @@ public class Q4 {
         return false;
     }
 
+    private boolean validateInput2(List<Integer> resultsArrayForAssessment) {
+        if(validateArraySize(resultsArrayForAssessment) && validateArrayInputType(resultsArrayForAssessment)) {
+                return true;
+        }else throw new IllegalArgumentException("Arrays must be of correct size and data type");
+    }
+
     private boolean validateArraySize(List<Integer> resultsArrayForAssessment) {
         return resultsArrayForAssessment.size() == 9;
     }
@@ -40,21 +46,10 @@ public class Q4 {
                 .anyMatch(n -> (n instanceof Integer));
     }
 
-    private String clarifyOutputMessage(String checkServiceOutput) {
-        if (checkService().equals(WINNER_PHRASE + X)){
-            return WINNER_PHRASE + "x";
-        }
-        if (checkService().equals(WINNER_PHRASE + O)) {
-            return WINNER_PHRASE + "o";
-        }
-        else return checkService();
-    }
     private void setup(List<Integer> resultsArrayForAssessment) {
-        validateArrayInputType();
         populateTicTacToeArray(resultsArrayForAssessment);
         setCentreVariable();
     }
-
 
     private void populateTicTacToeArray(List<Integer> resultsArrayForAssessment) {
         resultsArrayForAssessment.add( ticTacToeArray[0][0]);
@@ -67,8 +62,18 @@ public class Q4 {
         resultsArrayForAssessment.add( ticTacToeArray[2][1]);
         resultsArrayForAssessment.add( ticTacToeArray[2][2]);
     }
+
     private void setCentreVariable() {
         centre = ticTacToeArray[1][1];
+    }
+
+    private String formatFinalOutput(String checkServiceOutput) {
+        if (checkServiceOutput.equals(WINNER_PHRASE + X)){
+            return WINNER_PHRASE + "x";
+        }
+        if (checkServiceOutput.equals(WINNER_PHRASE + O)) {
+            return WINNER_PHRASE + "o";
+        }else return checkServiceOutput;
     }
 
     private String checkService() {
@@ -80,50 +85,39 @@ public class Q4 {
         }
         if (checkForWinnerByCentre().equals(CENTRE_EMPTY_PHRASE)) {
             return checkOutside();
-        }
-        else return "error - should return winner/no winner/empty ";
+        }else return "error - should return winner/no winner/empty ";
     }
 
     private String checkForWinnerByCentre() {
         if (centre == X || centre == O) {
             return (checkCentre(centre) + centre);
-        }
-        else if (centre == EMPTY) {
+        }else if (centre == EMPTY) {
             return CENTRE_EMPTY_PHRASE;
-        }
-        else return "error - centre should contain x/o/empty";
+        }else return "error - centre should contain x/o/empty";
     }
 
     private String checkCentre(int centre) {
         if (ticTacToeArray[0][0] == centre && ticTacToeArray[2][2] == centre) {
             return WINNER_PHRASE;
-        }
-        else if(ticTacToeArray[0][2] == centre && ticTacToeArray[2][0] == centre) {
+        }else if(ticTacToeArray[0][2] == centre && ticTacToeArray[2][0] == centre) {
             return WINNER_PHRASE;
-        }
-        else if (ticTacToeArray[0][1] == centre && ticTacToeArray[2][1] == centre) {
+        }else if (ticTacToeArray[0][1] == centre && ticTacToeArray[2][1] == centre) {
             return WINNER_PHRASE;
-        }
-        else if (ticTacToeArray[1][0] == centre && ticTacToeArray[1][2] == centre) {
+        }else if (ticTacToeArray[1][0] == centre && ticTacToeArray[1][2] == centre) {
             return WINNER_PHRASE;
-        }
-        else return NO_WINNER_PHRASE;
+        }else return NO_WINNER_PHRASE;
     }
 
     private String checkOutside() {
         if (ticTacToeArray[0][0] == ticTacToeArray[0][1] && ticTacToeArray[0][1]  == ticTacToeArray[0][2] ) {
             return WINNER_PHRASE;
-        }
-        else if(ticTacToeArray[0][0] == ticTacToeArray[1][0] && ticTacToeArray[1][0]  == ticTacToeArray[2][0] ) {
+        }else if(ticTacToeArray[0][0] == ticTacToeArray[1][0] && ticTacToeArray[1][0]  == ticTacToeArray[2][0] ) {
             return WINNER_PHRASE;
-        }
-        else if (ticTacToeArray[2][0] == ticTacToeArray[2][1] && ticTacToeArray[2][1]  == ticTacToeArray[2][2] ) {
+        }else if (ticTacToeArray[2][0] == ticTacToeArray[2][1] && ticTacToeArray[2][1]  == ticTacToeArray[2][2] ) {
             return WINNER_PHRASE;
-        }
-        else if (ticTacToeArray[0][2] == ticTacToeArray[1][2] && ticTacToeArray[1][2]  == ticTacToeArray[2][2] ) {
+        }else if (ticTacToeArray[0][2] == ticTacToeArray[1][2] && ticTacToeArray[1][2]  == ticTacToeArray[2][2] ) {
             return WINNER_PHRASE;
-        }
-        else return NO_WINNER_PHRASE;
+        }else return NO_WINNER_PHRASE;
     }
 }
 
